@@ -36,7 +36,7 @@ class ReviewBoard(Component):
 		return "tracticket{0}".format(ticket.id);
 	
 	def ticket_created(self, ticket):
-		self.rb.create_group("Trac ticket #{0}: {1}".format(ticket.id, ticket['summary']), self.ticket_group(ticket))
+		self.rb.create_group(u"Trac ticket #{0}: {1}".format(ticket.id, ticket['summary']), self.ticket_group(ticket))
 		link = urlparse.urljoin(self.rb.url, "groups/{0}".format(self.ticket_group(ticket)))
 		ticket.save_changes(comment="'''[{0} Code reviews]'''".format(link))
 	
